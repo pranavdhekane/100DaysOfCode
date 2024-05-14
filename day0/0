@@ -13,7 +13,7 @@ Week 3-4: Conquer trees and graphs like a coding ninja!
 Week 5-6: Dive deep into essential algorithms - searching and sorting, here we come!
 Week 7-8: Crack the code with dynamic programming and greedy algorithms!
 Week 9-10: Unleash advanced strategies and problem-solving techniques!
-📂 Stay tuned for epic code implementations and progress updates in my Git repository [Your Git Repo Link]! Let's make waves in the coding community together! 🌊💥
+📂 Stay tuned for epic code implementations and progress updates in my Git repository https://github.com/pranavdhekane/100DaysOfCode ! Let's make waves in the coding community together! 🌊💥
 
 📚 Fueling my journey with knowledge from GeeksforGeeks, epic YouTube tutorials, and who knows, maybe even kickstarting a blog along the way! 🚀📚
 
