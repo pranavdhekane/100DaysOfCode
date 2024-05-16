@@ -1,0 +1,58 @@
+Day 1 : 
+
+//output 
+System.out.println("Hello World");
+
+//input
+Scanner sc  = new Scanner(System.in); 
+String name = sc.next();   //access only first line
+String name = sc.nextLine();
+System.out.println(name);
+
+//variable decleration
+int a = 12;
+int b = 12;
+String name = "Pranav";
+ 
+//if-else 
+if(condition){
+    statement;
+} else {
+    statement;
+}
+
+//else if 
+if(condition){
+    statement;
+} else if(condition) {
+    statement;
+}
+else {
+    statement;
+}
+
+//switch 
+switch(variable) {
+    case 1: statements;
+    break;
+    case 2: statements;
+    break;
+    case n: statements;
+    break;
+    default : default statement;
+}
+
+//for loop
+for(initialization; condition; upadtion){
+....
+}
+
+//while
+while(condition) {
+....
+}
+
+//do while
+do{
+....
+} while (condition);
