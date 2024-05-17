@@ -1,0 +1,203 @@
+Day 2: 
+
+// 1. Solid rectangle 
+for(int i =0; i<4; i++){
+    for(int j = 0 ; j<5; j++){
+        System.out.print("*");
+    }
+    System.out.println("");
+}
+
+// 2. Hollow reactngle
+int n = 4;
+int m = 5;
+
+for(int i = 1; i<=n; i++){
+    for(int j=1; j<=m; j++){
+        if(i==1 || j==1 || i==n || j==m){
+            System.out.print("*");
+        } else {
+            System.out.print(" ");
+        }
+    }
+    System.out.println();
+}
+
+// 3. Half Pyramid 
+for(int i=0; i<4; i++){
+    for(int j=0; j<=i; j++){
+        System.out.print("*");
+    }
+    System.out.println();
+}
+
+//4. Inverted Half Pyramid 
+for(int i =5; i>0; i--){
+    for(int j =0; j<i; j++){
+        System.out.print("*");
+    }
+    System.out.println();
+}
+
+//5. Mirrored Half Pyramid
+int n = 4;
+for(int i=1; i<=n; i++) {
+    for(int j =0; j<n-i; j++){
+        System.out.print(" ");
+    }
+    for(int j =n-i; j<n; j++){
+        System.out.print("*");
+    }
+    System.out.println();
+}
+
+//6. Half Pyramid with numbers 
+int n = 5;
+for(int i =1; i<=5; i++){
+    for(int j =1; j<=i; j++){
+        System.out.print(j);
+    }
+    System.out.println();
+}
+
+//7. Inverted Half Pyramid with numbers 
+int n = 5;
+for(int i=0; i<n; i++) {
+    for(int j = 1; j<=n-i; j++){
+        System.out.print(j);
+    }
+    System.out.println();
+}
+
+//8. Floyd's Triangle
+int n = 5;
+int number =1;
+for(int i = 0; i< n; i++){
+    for(int j = 0; j<=i; j++){
+        System.out.print(number + " ");
+        number++;
+    }
+    System.out.println();
+}
+
+//9. 0-1 Triangle
+int n = 5;
+for(int i =0; i<n; i++) {
+    for(int j = 0; j<= i; j++){
+        if((i+j) % 2 == 0){
+            System.out.print("1");
+        }else {
+            System.out.print("0");
+        }
+    }
+    System.out.println();
+}
+
+
+//10. Butterfly Pattern
+int n = 5;
+for(int i =1; i<= n; i++){
+    for(int j = 1; j<=i; j++){
+        System.out.print("*");
+    }
+    for(int j = 1; j<=(n-i)*2; j++){
+        System.out.print(" ");
+    }
+    for(int j = 1; j<=i; j++){
+        System.out.print("*");
+    }
+    System.out.println();
+}
+for(int i =n; i>0; i--){
+    for(int j = 1; j<=i; j++){
+        System.out.print("*");
+    }
+    for(int j = 1; j<=(n-i)*2; j++){
+        System.out.print(" ");
+    }
+    for(int j = 1; j<=i; j++){
+        System.out.print("*");
+    }
+    System.out.println();
+}
+
+
+//11. Solid Rhombus
+int n = 5;
+for(int i = 1; i<=n; i++){
+    for(int j = n-i; j>0; j--){
+        System.err.print(" ");
+    }
+    for(int j = 1 ; j<=n ; j++){
+        System.out.print("*");
+    }
+    System.out.println();
+}
+
+//12. Hollow Rhombus
+int n = 5;
+for(int i = 1; i<=n; i++){
+    for(int j = n-i; j>0; j--){
+        System.err.print(" ");
+    }
+    for(int j = 1 ; j<=n ; j++){
+        if(i==1 || i==n || j==1 || j==n){
+            System.out.print("*");
+        } else{
+            System.err.print(" ");                   
+        }
+
+    }
+    System.out.println();
+}
+
+// 13. Number Pyramid
+int n = 5;
+for(int i = 1; i<=n; i++) {
+    for(int j = 1; j<=(n-i); j++){
+        System.out.print(" ");
+    }
+    for(int j = 1; j <= i; j++){
+        System.out.print(i + " ");
+    }
+    for(int j = 1; j<=(n-i); j++){
+        System.out.print(" ");
+    }
+    System.out.println();
+}
+
+// 14. Palindromic Pyramid
+int n = 5;
+for(int i =1 ; i<=n; i++){
+    for(int j =0; j<(n-i); j++){
+        System.out.print(" ");
+    }
+    for(int j = i; j>=1; j--){
+        System.out.print(j);
+    }
+    for(int j = 2; j<=i; j++){
+        System.out.print(j);
+    }
+    System.out.println();
+}
+
+//15. Diamond Pattern
+int n = 15;
+for(int i=1; i<=n; i++){
+    for(int j=1; j<=n-i; j++){
+        System.out.print("  ");
+    }
+    for(int j = 1; j <= (2*i-1); j++){
+        System.out.print("* ");
+    }
+    System.out.println();
+}
+for(int i=n; i>=1; i--){
+    for(int j=1; j<=n-i; j++){
+        System.out.print("  ");
+    }
+    for(int j = 1; j <= (2*i-1); j++){
+        System.out.print("* ");
+    }
+    System.out.println();
+}
