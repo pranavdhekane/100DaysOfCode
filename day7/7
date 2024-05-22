@@ -1,0 +1,143 @@
+Day 7 : 
+
+/////OPERATIONS ON ARRAY/////
+
+// array left rotation by d positions.
+
+2. Rotating array one by one (1st element will become last)
+    array will be rotated until desired output is reached(d times)
+
+Time Complexity : O(N * d)
+Auxillary Space: O(1)
+
+    public class rotate  {
+    public static void rotate (int arr[], int d, int n){
+        int i = 0;
+        while(i<d){
+            int temp = arr[0];
+            for(int j=0; j<n-1; j++){
+                arr[j] = arr[j+1];
+            }
+            arr[n-1]= temp;
+            i++;
+        }
+    }
+
+    public static void printArray(int arr[]){
+        for(int i =0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        return;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        //Input array size 
+        System.out.println("Enter array size and then array elements");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        //input array 
+        for(int i =0; i< n; i++){
+            arr[i] = sc.nextInt(); 
+        }
+
+        //input positions (d)
+        System.out.println("Enter d");
+        int d = sc.nextInt();
+
+        //printing original array 
+        System.out.println("Original Array : ");
+        printArray(arr);
+
+        rotate(arr, d, n);
+        
+        //printing rotated array
+        System.out.println("Printing arry rotated by " + d + " postions");
+        printArray(arr);
+    }
+}
+
+    
+3. Using Jugling Algorithm
+
+4. reversal algorithm
+
+//Search, Insert, and Delete in an Unsorted Array 
+
+1.Search Opearation //using linear traversal from left to right 
+Time Complexity: O(N)
+Space Complexity: O(1)
+
+public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+
+    //Input array size 
+    System.out.println("Enter array size and then array elements");
+    int n = sc.nextInt();
+
+    int[] arr = new int[n];
+    //input array 
+    for(int i =0; i< n; i++){
+        arr[i] = sc.nextInt(); 
+    }
+
+    //input key 
+    System.out.println("Enter key");
+    int key = sc.nextInt();
+
+    //finding key 
+    for(int i = 0; i< n; i++){
+        if(key == arr[i]){
+            System.out.println("Key found at position "+ (i+1));
+            return;
+        }
+    }
+    System.out.println("Key not found");
+    
+}
+
+2. Insertion Opearation
+    i. At the end
+    Time complexity: O(1)
+    Auxiliary Space: O(1)
+    
+    public static int insertEl(int arr[], int el, int n, int capacity){
+        if(n>=capacity){
+            System.out.println("Array capapcity is reached");
+            return n;
+        }
+        arr[n] = el;
+        return n+1;
+    }
+    public static void printArray(int arr[], int n){
+        for(int i =0; i < n; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        return;
+    }
+    public static void main(String[] args) {
+        int[] arr = new int[10];
+        Scanner sc = new Scanner(System.in);
+
+        //input n and array elements
+        System.out.println("Enter n and then Array elements"); 
+        int n = sc.nextInt();
+        for(int i = 0; i< n; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        //input element to append
+        System.out.println("Enter element to add");
+        int el = sc.nextInt();
+
+        System.out.println("Array before Inserting a element");
+        printArray(arr, n);
+        
+        n = insertEl(arr, el, n, arr.length);
+        System.out.println("Array After Inserting a element");
+        printArray(arr, n);
+    }
+
