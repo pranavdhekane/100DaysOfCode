@@ -20,6 +20,7 @@ public class day7 {
     }
     public static void main(String[] args) {
         int[] arr = new int[10];
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
         //input n and array elements

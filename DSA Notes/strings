@@ -1,0 +1,112 @@
+String class is immutable.
+
+//string declearation
+String strName = "String";\
+String strName = new String("String");
+
+//String concatnation
+String str1 = "string 1";
+String str2 = "string 2";
+String str = str1 + str2;
+output = str1.concat(str2);
+
+//String length
+str.length();
+
+// to access each character in a string 
+for(int i =0; i<str.length(); i++){
+    System.out.println(str.charAt(i));
+}
+
+//string comparison
+str1.compareTo(str2); // compare lexicographiclly
+str1.compareToIgnoreCase(str2); // Ignore case while comparing
+
+if equal : return 0
+if str1 > str2 : return +ve
+if str1 < str2 : return -ve
+
+//Substring
+str.substring(begining idx, ending idx);
+
+//First Occurence
+int output = str.indexOf("String"); // returns first occurnce of specified string, if string is not present returns -1
+
+//change cases
+str = "pranav";
+str.toUpperCase(); //returns "PRANAV"
+str.toLowerCase(); //returns "pranav"
+
+//string trim()
+str.trim(); // returns removed spaces from both ends of string without affecting the spaces in between
+
+//String Replace(oldchar, newchar)
+str.replace('p', 'q'); // return string with all 'q' instead of 'p'
+
+//string containes 
+str.contains("pranav"); // returns true if specifed string is present
+
+//str to char array
+String str = "pranav";
+char[] ch = str.toCharArray();// returns character array ['p', 'r', 'a', 'n', 'a', 'v']
+
+//string startwith
+str.startsWith("P"); //returns true if str starts with specified string 
+
+//some methods
+    charAt : sb.charAt(idx); //Give character at idx
+    setCharAt : sb.setCharAt(idx, 'el'); // changes character at idx
+    insert : sb.insert(idx, 'el'); // add character at idx and shift other to right(idx+1 for all right el);
+    delete : sb.delete(idx, end); //delete from idx until end(end is excluded)
+    append : sb.append('el'); //add el at the end
+    length : sb.length();
+
+//String buffer 
+it is mutable 
+StringBuffer sb = new StringBuffer("Pranav");
+
+    Methods	    Action Performed
+    append()	Used to add text at the end of the existing text.
+    length()	The length of a StringBuffer can be found by the length( ) method
+    capacity()	the total allocated capacity can be found by the capacity( ) method
+    charAt()	This method returns the char value in this sequence at the specified index.
+    delete()	Deletes a sequence of characters from the invoking object
+    deleteCharAt()	Deletes the character at the index specified by the loc
+    ensureCapacity()	Ensures capacity is at least equal to the given minimum.
+    insert()	Inserts text at the specified index position
+    length()	Returns the length of the string  
+
+
+//string builder 
+StringBuilder sb = new StringBuilder("Pranav");
+String Builder is not thread-safe and high in performance compared to String buffer.
+also it is mutable.
+
+
+//When what should be used
+If a string is going to remain constant throughout the program, then use the String class object because a String object is immutable.
+If a string can change (for example: lots of logic and operations in the construction of the string) and will only be accessed from a single thread, using a StringBuilder is good enough.
+If a string can change and will be accessed from multiple threads, use a StringBuffer because StringBuffer is synchronous, so you have thread-safety.
+If you don't want thread-safety than you can also go with StringBuilder class as it is not synchronized.
+
+//Conversion
+1. String to StringBuilder and StringBuffer
+
+String str = "pranav";
+StringBuffer sb = new StringBuffer(str);
+StringBuilder sbl = new StringBuilder(str);
+
+2. StringBuffer & StringBuilder to string // using toString()
+
+StringBuffer sb = new StringBuffer("pranav");
+StringBuilder sbl = new StringBuilder("pranav");
+String str = sb.toString();
+String str1 = sbl.toString();
+
+3. StringBuffer to StringBuilder and vice versa
+//first converting them to String and then into each other using constructors
+
+StringBuffer sb = new StringBuffer("Geeks");
+String str = sb.toString();
+StringBuilder sbl = new StringBuilder(str);
+    

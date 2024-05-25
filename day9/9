@@ -1,0 +1,39 @@
+Day 9 : 
+
+Strings are immutable.
+
+//string declearation
+String strName = "String";
+
+//String concatnation
+String str1 = "string 1";
+String str2 = "string 2";
+String str = str1 + str2;
+
+//String length
+str.length();
+
+// to access each character in a string 
+for(int i =0; i<str.length(); i++){
+    System.out.println(str.charAt(i));
+}
+
+//string comparison
+str1.compareTo(str2)
+
+if equal : return 0
+if str1 > str2 : return +ve
+if str1 < str2 : return -ve
+
+//Substring
+str.substring(begining idx, ending idx);
+
+//string builder 
+StringBuilder sb = new StringBuilder("Pranav");
+
+    charAt : sb.charAt(idx); //Give character at idx
+    setCharAt : sb.setCharAt(idx, 'el'); // changes character at idx
+    insert : sb.insert(idx, 'el'); // add character at idx and shift other to right(idx+1 for all right el);
+    delete : sb.delete(idx, end); //delete from idx until end(end is excluded)
+    append : sb.append('el'); //add el at the end
+    length : sb.length();

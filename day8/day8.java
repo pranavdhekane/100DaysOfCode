@@ -1,7 +1,5 @@
 package day8;
 
-import java.util.Scanner;
-
 public class day8 {
     public static void subArray(int arr[], int start, int end){
         if(end == arr.length){

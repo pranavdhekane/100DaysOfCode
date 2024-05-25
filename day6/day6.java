@@ -30,6 +30,7 @@ public class day6 {
         return;
     }
     public static void main(String[] args){
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
         //Input array size 

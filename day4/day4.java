@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class day4 {
     public static void main(String[] args) {
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
         int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};

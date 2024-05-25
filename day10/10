@@ -1,0 +1,48 @@
+//String buffer 
+it is mutable 
+StringBuffer sb = new StringBuffer("Pranav");
+
+    Methods	    Action Performed
+    append()	Used to add text at the end of the existing text.
+    length()	The length of a StringBuffer can be found by the length( ) method
+    capacity()	the total allocated capacity can be found by the capacity( ) method
+    charAt()	This method returns the char value in this sequence at the specified index.
+    delete()	Deletes a sequence of characters from the invoking object
+    deleteCharAt()	Deletes the character at the index specified by the loc
+    ensureCapacity()	Ensures capacity is at least equal to the given minimum.
+    insert()	Inserts text at the specified index position
+    length()	Returns the length of the string  
+
+
+//string builder 
+StringBuilder sb = new StringBuilder("Pranav");
+String Builder is not thread-safe and high in performance compared to String buffer.
+also it is mutable.
+
+
+//When what should be used
+If a string is going to remain constant throughout the program, then use the String class object because a String object is immutable.
+If a string can change (for example: lots of logic and operations in the construction of the string) and will only be accessed from a single thread, using a StringBuilder is good enough.
+If a string can change and will be accessed from multiple threads, use a StringBuffer because StringBuffer is synchronous, so you have thread-safety.
+If you don’t want thread-safety than you can also go with StringBuilder class as it is not synchronized.
+
+//Conversion
+1. String to StringBuilder and StringBuffer
+
+String str = "pranav";
+StringBuffer sb = new StringBuffer(str);
+StringBuilder sbl = new StringBuilder(str);
+
+2. StringBuffer & StringBuilder to string // using toString()
+
+StringBuffer sb = new StringBuffer("pranav");
+StringBuilder sbl = new StringBuilder("pranav");
+String str = sb.toString();
+String str1 = sbl.toString();
+
+3. StringBuffer to StringBuilder and vice versa
+//first converting them to String and then into each other using constructors
+
+StringBuffer sb = new StringBuffer("Geeks");
+String str = sb.toString();
+StringBuilder sbl = new StringBuilder(str);
