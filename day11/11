@@ -1,0 +1,56 @@
+Day 11: 
+
+//StringTokenizer Class
+This class is used to break strings into tokens.
+    //Delimiters 
+    are the characters that separate tokens, usually delimiters are spaces, new lines, tabs;
+
+    //Constructors 
+    1. StringTokenizer(String str); // Default delimiters like new line , space, tab, etc.
+    2. StringTokenizer(String str, String delim);//delim is a set of delimiters that are used to tokenize the string // Muliple delims can also be passed in a single string    
+    3. StringTokenizer(String str, String delim, bollean flag); //is flag is false delimiters are used to separate the tokens , if true delimiters are also considered as tokens;
+
+    //Methods 
+    countTokens(); //returns total number of tokens
+    hasMoreTokens(); //test if tokens are present or not
+    nextElement(); //Returns object rather than string
+    hasMoreElements; //returns same as hasMoreTokens()
+    nextToken(); returns next token from given StringTokenizer
+
+//StringJoiner Class
+StringJoiner Class is used to construct a sequence of string separated by delimeter and optionally starting with prefix and ending with suffix.
+
+StringJoiner sj = new StringJoiner(delim);
+StringJoiner sj = new StringJoiner(delim, prefix, suffix);
+
+    //methods
+    add(); //adds a copy of charSequence value as the next element of StringJoiner value.
+    length(); //returns length
+    str.merge(str1);// merges two stringJoiner 
+    toString();
+    setEmptyValue(); //Sets an empty value
+
+    public static void main(String[] args) {
+        StringJoiner sj = new StringJoiner(";");
+        sj.setEmptyValue("this is empty"); 
+        System.out.println(sj); // this is empty
+
+        sj.add("pranav");
+        sj.add("dhekane");
+
+        System.out.println(sj); //pranav;dhekane
+
+        StringJoiner sj1 = new StringJoiner("_");
+        sj1.add("hi");
+        sj1.add("my");
+        sj1.add("name");
+        sj1.add("is");
+        sj1.add("pranav");
+
+        System.out.println(sj1);//hi_my_name_is_pranav
+
+        sj.merge(sj1);
+
+        System.out.println(sj);//pranav;dhekane;hi_my_name_is_pranav
+        System.out.println(sj1);//hi_my_name_is_pranav
+    }
