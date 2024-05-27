@@ -54,7 +54,7 @@ char[] ch = str.toCharArray();// returns character array ['p', 'r', 'a', 'n', 'a
 str.startsWith("P"); //returns true if str starts with specified string 
 
 //some methods
-    charAt : sb.charAt(idx); //Give character at idx
+    charAt : sb.charAt(idx); //Give character at idx as ascii value and if the idx is not present in given string , throws a exception named StringIndexOutOfBoundsException.
     setCharAt : sb.setCharAt(idx, 'el'); // changes character at idx
     insert : sb.insert(idx, 'el'); // add character at idx and shift other to right(idx+1 for all right el);
     delete : sb.delete(idx, end); //delete from idx until end(end is excluded)
@@ -165,3 +165,10 @@ StringJoiner sj = new StringJoiner(delim, prefix, suffix);
         System.out.println(sj);//pranav;dhekane;is;great;hi_my_name_is_pranav
         System.out.println(sj1);//hi_my_name_is_pranav
     }
+
+
+
+/////Basic Operations on string/////
+
+1. Searching a Character in a string 
+    

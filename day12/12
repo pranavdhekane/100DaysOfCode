@@ -1,0 +1,67 @@
+Day 12: 
+
+/////Basic Operations on string/////
+
+1. Searching a Character in a string 
+
+    i. Using indexOf(char c) // returns idx of first occurence of char c , if not present returns -1
+        public static void main(String[] args) {
+            String str = "pranav";
+            char c = 'a';
+            int idx = str.indexOf(c); //2
+            System.out.println(c + " found at idx "+ idx);
+        }  
+        
+    ii. Using lastIndexOf(char c) //returns idx of last occurence of char c, if not present returns -1
+        public static void main(String[] args) {
+            String str = "pranav";
+            char c = 'a';
+            int idx = str.lastIndexOf(c);//4
+            System.out.println(c + " found at idx "+ idx);
+        }  
+
+    iii. Using indexOf(char c, int indexFrom) // takes parameters as the character and the number from where the searching will start, return is same as indexOf()
+        public static void main(String[] args) {
+            String str = "pranav";
+            char c = 'a'; 
+            int idx = str.indexOf(c, 3); // 4
+            System.out.println(c + " found at idx "+ idx);
+        } 
+
+    iv. Using lastIndexOf(char c, int indexFrom) // takes parameters, character  and the number before from the last index will be calculatd , return same as lastIndexOf();
+        public static void main(String[] args) {
+            String str = "pranav";
+            char c = 'a';
+            int idx = str.lastIndexOf(c, 3); // 2  , in pranav , at 3rd index there is 'n' and according to this the last index would be 2, but the indexFrom is >= 4 it would return the last index as 4
+            System.out.println(c + " found at idx "+ idx);
+        }  
+
+2. Searching a substring in a string 
+    //Using contain() //return a boolean val
+    public static void main(String[] args) {
+        String str = "Hi, I am Pranav";
+        Boolean yes = str.contains("am");
+        System.out.println(yes);
+    } 
+
+3. Reversing a String 
+
+    i.Using Loops
+        public static void main(String[] args) {
+            String str = "Pranav";
+            StringBuilder rev = new StringBuilder();
+            for(int i = str.length() - 1; i>=0; i--){
+                rev.append(str.charAt(i));
+            }
+            System.out.println("Reversed String : "+ rev.toString());
+        }  
+
+    ii.Using inbuilt method
+        public static void main(String[] args) {
+            String str = "Pranav";
+            StringBuffer rev = new StringBuffer(str);
+            rev.reverse();
+            System.out.println(rev.toString());
+        } 
+
+4. Left and right rotation of a string by d positions
