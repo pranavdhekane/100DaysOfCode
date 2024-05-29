@@ -1,0 +1,59 @@
+Day 14 : 
+
+//Bubble sort
+    public static void main(String [] args){
+        int arr[] = { 7 , 9, 3, 5, 2};
+        for(int i = 0; i< arr.length-1; i++){
+            for(int j = 0; j < arr.length-i-1; j++){
+                if(arr[j] > arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+
+        for(int i = 0; i<arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+//Selection Sort
+
+    public static void main(String [] args){
+        int arr[] = { 7 , 9, 3, 5, 2};
+        for(int i = 0; i< arr.length-1; i++){
+            int min = i;
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[min] > arr[j]){
+                    min = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+
+        for(int i = 0; i<arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+//Insertion Sort
+    public static void main(String [] args){
+        int arr[] = { 7 , 9, 3, 5, 2};
+        for(int i = 0; i<arr.length ; i++){
+            int current = arr[i];
+            int j  =i-1;
+            while(j>=0 && current < arr[j] ){
+                arr[j+1] = arr[j];
+                j--;
+
+            }
+            arr[j+1] = current;
+        }
+
+        for(int i = 0; i<arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+    }
