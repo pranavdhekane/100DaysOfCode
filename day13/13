@@ -1,0 +1,50 @@
+Day 13: 
+
+/////Basic Operations on string/////
+
+4. Left and right rotation of a string by d positions
+
+    i.
+        static String leftRotate(String str, int d){
+            return (str.substring(d) + str.substring(0, d));
+        }
+        static String rightRotate(String str, int d){
+            return leftRotate(str, str.length()-d);
+        }
+        public static void main(String[] args){
+            String str = "123456";
+            System.out.println("String : " + str);
+            System.out.println("Left rotated String : " + leftRotate(str, 2));
+            System.out.println("Right rotated String : " + rightRotate(str, 2));
+        } 
+
+    ii. 
+        static String leftRotate(String str, int d){
+            String temp = str + str;
+            int len = str.length();
+            return temp.substring(d, d + len);
+        }
+        static String rightRotate(String str, int d){
+            return leftRotate(str, str.length()-d);
+        }
+        public static void main(String[] args){
+            String str = "123456";
+            System.out.println("String : " + str);
+            System.out.println("Left rotated String : " + leftRotate(str, 2));
+            System.out.println("Right rotated String : " + rightRotate(str, 2));
+        }
+
+5. Deleting a character in a string
+//using deleteCharAt();
+    public static void main(String[] args) {
+        StringBuilder str = new StringBuilder("Pranav");
+        char ch = 'a';
+        for(int i =0; i< str.length(); i++){
+            if(str.charAt(i) == ch){
+                str.deleteCharAt(i);
+                i--;
+            }
+        }
+        System.out.println(str);
+    }
+    
