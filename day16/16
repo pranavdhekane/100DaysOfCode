@@ -1,0 +1,158 @@
+Day 16 : 
+
+//Recursion 
+
+1.  Tower of Hanoi  //Time Complexity : O(2^n)
+    public static void towerOfHanoi(int n, String src, String helper, String dest){
+        if(n==1){
+            System.out.println("transfer disk " + n + " from " + src + " to " + dest);
+            return;
+        }
+        
+        towerOfHanoi(n-1, src, dest, helper);//transfering n-1 disks to helper from src using dest
+        System.out.println("transfer disk " + n + " from " + src + " to " + dest);
+        towerOfHanoi(n-1, helper, src, dest);//transfering n-1 disks to dest from helper usign src
+    }
+    public static void main(String[] args) {
+        int n = 4;
+        towerOfHanoi(n, "S", "H", "D");
+
+    }
+
+2. Print String in reverse //Time Complexity: O(n) where n is string length
+    public static void printString(int idx,String str){
+        if(idx==0){
+            System.out.println(str.charAt(0));
+            return;
+        }
+        System.out.println(str.charAt(idx));
+        printString(idx-1, str);
+    }
+    public static void main(String[] args) {
+        String str = "pranav";
+        printString(str.length() -1, str);
+    }   
+
+3. Find First and Last Occurence of an element in a string  //Time Complexity: O(n) where n is string length
+    public static int first = -1;
+    public static int last = -1;
+    public static void Occurence(String str, int idx, char el){
+        if(idx == str.length()){
+            System.out.println("first occurnce : " + first);
+            System.out.println("last occurnce : " + last);
+            return;
+        }
+        if(str.charAt(idx) == el){
+            if(first == -1){
+                first = idx;
+            } else {
+                last = idx;
+            }
+        }
+        Occurence(str, idx+1, el);
+    }
+    public static void main(String[] args) {
+        Occurence("pranav", 0, 'a');
+    } 
+
+4. Check if array is sorted (stritcllay increasing) //time complexity : O(n) where n is array length
+    public static boolean checkArr(int arr[], int idx){
+        if(idx == arr.length - 1){
+            return true;
+        }
+        if(arr[idx] < arr[idx+1]){
+            return checkArr(arr, idx+1); // return statement here is used to return the boolean val came from teh checkArr func and again return it, quite confusing
+        } else {
+            return false;
+        }
+    }
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 3, 4};
+        System.out.println(checkArr(arr, 0));
+    }   
+
+5. Move all x to the end of string //Time Complexity : O(n)
+    public static void moveX(String str, int idx, String newStr, int count){
+        if(idx == str.length()){
+            for(int i =0; i<count; i++){
+                newStr += 'x';
+            }
+            System.out.println(newStr);
+            return;
+        }
+
+        if(str.charAt(idx) == 'x'){
+            moveX(str, idx+1, newStr, count+1);
+        } else {
+            newStr += str.charAt(idx);
+            moveX(str, idx+1, newStr, count);
+        }
+    }
+    public static void main(String[] args) {
+        String str = "axbxdxddx";
+        moveX(str, 0, "", 0);
+    }
+
+6. Remove duplicates // Time Complexity : O(n)
+    public static void removeDuplicate(String str, int idx, String newStr){
+        if(idx == str.length()){
+            System.out.println(newStr);
+            return;
+        }
+
+        char currChar = str.charAt(idx);
+        if(map[currChar - 'a']){  // currchar - 'a', gives the idx of given character in the map array 
+            removeDuplicate(str, idx+1, newStr);
+        } else {
+            map[currChar - 'a'] = true;
+            newStr += currChar;
+            removeDuplicate(str, idx+1, newStr);
+        }
+    }
+    public static void main(String[] args) {
+        String str = "axbxdxddx";
+        removeDuplicate(str, 0, "");
+    }   
+
+7. Print all Subsequences //Time Complexity : O(2^n)
+    public static void printSubsquences(String str, int idx, String newStr){
+        if(str.length() == idx){
+            System.out.println(newStr);
+            return;
+        }
+
+        char currChar = str.charAt(idx);
+        //to be
+        printSubsquences(str, idx+1, newStr+currChar);
+        //not to be
+        printSubsquences(str, idx+1, newStr);
+    }
+    public static void main(String[] args) {
+        String str = "ab";
+        printSubsquences(str, 0, "");
+    }
+
+8. Print all unique Subsequences
+    public static void printSubsquences(String str, int idx, String newStr, HashSet<String> set){
+        if(str.length() == idx){
+            if(set.contains(newStr)){
+                return;
+            } else {
+                System.out.println(newStr);
+                set.add(newStr);
+                return;
+            }
+        }
+        char currChar = str.charAt(idx);
+        //to be
+        printSubsquences(str, idx+1, newStr+currChar, set);
+        //not to be
+        printSubsquences(str, idx+1, newStr, set);
+    }
+    public static void main(String[] args) {
+        String str = "aaa";
+        HashSet<String> set = new HashSet<>();
+        printSubsquences(str, 0, "", set);
+    } 
+
+    
