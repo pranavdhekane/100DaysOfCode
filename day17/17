@@ -1,0 +1,61 @@
+Day 17 : 
+
+Recursion 
+
+1. Print all Permuations 
+    public static void permutations(String str, String permutation) {
+        if(str.length() == 0){
+            System.out.println(permutation);
+            return;
+        }
+
+        for(int i = 0; i<str.length(); i++){
+            char currChar = str.charAt(i);
+            String newStr = str.substring(0, i) + str.substring(i+1);
+            permutations(newStr, permutation + currChar);
+        }
+    }
+    public static void main(String[] args) {
+        permutations("abc", "");
+    }
+
+2. Count total paths in maze to move from (0, 0) to (n, m)// only move in right and down direction
+    public static int countPaths(int i, int j, int n , int m){
+        if(i==n || j==m){
+            return 0;
+        }
+        if(i == n-1 && j == m-1){
+            return 1;
+        }
+
+        int downPaths = countPaths(i+1, j, n, m);
+        int rightPaths = countPaths(i, j+1, n, m);
+
+        return downPaths + rightPaths;
+    }
+    public static void main(String[] args) {
+        System.out.println(countPaths(0, 0, 3, 3));
+    }
+    
+3. Place tiles of 1 X m in a floor size of n X m // different ways
+    public static int placeTiles(int n, int m){
+        if(n==m){
+            return 2;
+        }
+        if(n<m){
+            return 1;
+        }
+
+        //vertically placing tiles
+        int verticle = placeTiles(n-m, m);
+
+        //horizontally placing tiles
+        int horizontle = placeTiles(n-1, m);
+
+        return verticle + horizontle;
+    }
+    public static void main(String[] args) {
+        System.out.println(placeTiles(14, 4));
+    }
+
+3. 
