@@ -1,0 +1,165 @@
+Day 21: 
+
+2. Abstraction in Java
+Abstraction is the process in which we show only esential functionality/details to the user the non-essential is are not displayed.
+
+In java, Abstraction is achieved by using abstract classes(0% to 100%) and interfaces(100% abstraction);
+
+Abstract classes and Methods : 
+abstract classes are declared with abstract keyword
+abstract methods are the methods that are declared without implementation
+A class having one or more abstract methods have to be declared with abstract keyword
+A abstract class may have some concreate methods also
+There can be no oject of abstract class
+
+Algorithm to implement Abstraction in java: 
+Define Abstract class/interfaces
+Define Abstract methods that do not have any implementation
+implement concreate classes that extends abstract classes/ implement interfaces.
+Override the abstract methods in concreate classes with specifuc implementation
+use concreate classes to implement the logic of the program(cause abstract classes cannot be used)
+
+//example
+abstract class shape{
+    private String color;
+    //abstract methods
+    public abstract void printInfo();
+    public abstract double area();
+
+    //construtor
+    shape(String color){
+        this.color = color;
+        System.out.println("shape constructor is called");
+    }
+
+    //concreate method
+    String getColor(){
+        return color;
+    }
+}
+
+class sqaure extends shape {
+    double length;
+
+    //constructor
+    sqaure(String color, double length) {
+        super(color);
+        this.length = length;
+        System.out.println("Sqaure constructor is called");
+    }
+
+    //overidden method
+    @Override
+    public void printInfo() {
+        System.out.println("Color of shape is " + super.getColor()  + "\nArea of shape is "+ area());
+    }
+
+    @Override
+    public double area() {
+        return length * length;
+    }
+    
+}
+public class day21 {
+    public static void main(String args[]){
+        sqaure s1 = new sqaure("black", 2);
+        s1.printInfo();
+    }
+}
+
+//Interface , is the another way of achieving abstraction. By using interfaces we can achieve 100% abstraction. 
+
+3. Encapsulation in Java 
+Encapsulation is a way of hiding implementation details of a class from outside access.
+IN java, it is achieved by declaring instance variables private so they can be used only within the class. and To allow outside access to the variables public methods called getters and setters are defined.
+Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together code and the data it manipulates. Another way to think about encapsulation is, that it is a protective shield that prevents the data from being accessed by the code outside this shield. 
+
+//example
+class Encapsulate {
+    private String name;
+    private int age;
+
+    //setters
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+
+    //getters
+    public void getInfo(){
+        System.out.println(name +" : " + age);
+    }
+}
+public class day21{
+    public static void main(String[] args) {
+        Encapsulate e1 = new Encapsulate();
+        e1.setName("pranav");
+        e1.setAge(18);
+        e1.getInfo();
+    }
+}
+
+4. Polymorphism in java
+Poly = many , morph = forms. The word Polymorphism means having many forms.
+Polymorphism allows us to perform single action in different ways.
+
+types : 
+Compile-time Polymorphism
+Run-time Polymorphism
+
+i. Compile-time Polymorphism
+this kind of Polymorphism is also know as static Polymorphism. This is achieved by function overloading or operator overloading 
+//java doesn't support operator overloading 
+When multiple functions with same name but different parameters are are defined then these function aer said to be overloaded.
+the functions can be overloaded by differing the no of arguments or type of arguments.
+
+//example
+class Polymorphism{
+    public static int add(int a, int b){
+        return a + b;
+    }
+    public static int add(int a , int b, int c){
+        return a + b + c;
+    }
+    public static double add(double a, double b){
+        return a +b;
+    }
+}
+public class day21{
+    public static void main(String[] args) {
+        System.out.println(Polymorphism.add(1, 2));
+        System.out.println(Polymorphism.add(1, 2, 3));
+        System.out.println(Polymorphism.add(1.1, 2.0));
+    }
+}
+
+ii. Run-time Polymorphism
+This type of Polymorphism is achieved by method overiding. Method overiding happens when a derived class has a defination of member function of a base class.
+the base funtion is said to be overidden.
+
+class one {
+    void print(){
+        System.out.println("class one");
+    }
+}
+class two extends one {
+    void print(){
+        System.out.println("class two");
+    }
+}
+class three extends one {
+    void print(){
+        System.out.println("class three");
+    }
+}
+public class day21{
+    public static void main(String[] args) {
+        two b = new two();
+        three c= new three();
+
+        b.print();
+        c.print();
+    }
+}
