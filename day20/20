@@ -1,0 +1,170 @@
+Day 20 : 
+
+//Classes and Objects 
+classes and objects are basic concepts used to represent real world concepts and entites.
+A Class represents a group of objects having similar properties.
+example, 
+let a Animal be a class. And dog can be a object that have all properties of Animal class.
+OR a student be class and a perticular student pranav can be a object.
+
+//Access Modifier
+1. default (no Keyword)
+The data members, classes, or methods that are not declared using any access modifiers
+i.e. having default access modifiers are accessible only within the same package.
+
+2. private 
+accessible only within the class it is declared not even in other classes in same object
+
+3. protected 
+accessible within the same package or within subclasses in different packages
+
+4. public 
+accessible throughout the program, no restrictions
+
+//class decleration (syntax)
+accesModifier class className {
+    data member;
+    constructor;
+    method;
+    nested class;
+    interface;
+}
+
+//Object decleration 
+ClassName object = new ClassName();
+also we can pass some arguments while creating a object
+
+//example
+    class Student {
+        String name;
+        int age;
+
+        //construtor
+        Student(){
+            System.out.println("Object of Student class is created ");
+        }
+
+        Student(String name){
+            System.out.println(name);
+        }
+
+        //method
+        public void printInfo(){
+            System.out.println(this.name +  this.age);
+        }
+    }
+
+    public class day20 {
+        public static void main(String[] args) {
+            //object declearation
+            Student s1 = new Student();    
+            s1.name = "pranav";
+            s1.age = 18;
+            s1.printInfo();
+
+            Student s2 = new Student("pranav");
+        }
+    }
+
+//MEthods
+syntax: 
+accessModifier return-type method-name (parameters){
+    body
+}
+
+//Constructor
+Constructor is like a method, it is called every time when the object is created.
+
+syntax: 
+    class ClassName {
+        ClassName(){ //constructor
+            ....
+        }
+    }
+
+Types: 
+1. Default Constructor 
+A constructor with no parameters
+
+2. Parameterized constructor
+A constructor having parameters
+
+3. Copy Constructor
+ClassName obj2 = new ClassName(obj1);
+this will copy contents of obj1 into obj2
+
+Constructor Overloading 
+A constructor can be used several times but with different parameters;
+We can add many constructors with same name but different parameters and each time obj is created one of them is called.
+
+//example
+    class Student{
+        String name;
+
+        //default Construcotr
+        Student(){
+            System.out.println("Student class object is created");
+        }
+        
+        //parameterized constructor
+        Student(String name){
+            this.name = name;
+        }
+        
+        //copy Constructor
+        Student(Student obj){
+            this.name = obj.name;
+        }
+
+    }
+    public class day20{
+        public static void main(String[] args) {
+            Student s1 = new Student();
+            System.out.println(s1.name);
+
+            Student s2 = new Student("pranav");
+            System.out.println(s2.name);//returns name = pranav
+
+            Student s3 = new Student(s2);
+            System.out.println(s3.name);//returns name = pranav
+        }
+
+        
+//Four main OOPS Concepts
+1. Inheritance
+2. Abstraction
+3. Encapsulation
+4. Polymorphism
+
+1. Inheritance in Java
+Inheritance means creating new classes based on existing ones.
+it uses keyword extends.
+by using Inheritance the child class can use every method and fields of parent class.
+
+types : 
+    Single Inheritance : Class B derived by Class A 
+    multilevel Inheritance : Class C derived by Class B and Class B derived by Class A 
+    hierarchical Inheritance : Class A serves as Super Class for serveral dervied Classes B, C D
+    multiple Inheritance : A Class derived From multiple SuperClasses , inherits properties from every SuperClass. In java multiple Inheritance is not supported by classes it uses interfaces for that purpose.
+    Hybrid Inheritance : It can be a combination of above Inheritances.
+
+//example
+class car {
+    int id;
+    car() {
+        System.out.println("Car class obj is created");
+    }
+}
+class supercar extends car {
+    supercar() {
+        super();
+    }
+}
+public class day20{
+    public static void main(String[] args) {
+        car c = new car();
+        supercar s = new supercar();
+    }
+}
+
+2. Abstraction in Java
