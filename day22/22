@@ -1,0 +1,130 @@
+Day 22 : 
+
+//Interfaces in Java
+
+In Java, interfaces are used to achieve total abstraction.
+Since Java does not support multiple Inheritance, Interfaces are a solution to that.
+Interface contains abstract methods without any method body.
+to implement interface , implements keyword is used.
+extends keyword is used to extend one interface to another.
+
+//example
+
+interface one{
+    public void methodOne();
+}
+interface two extends one{
+    public void methodTwo();
+}
+interface three extends one{
+    public void methodThree();
+}
+class CLASS implements three, two{ //multiple inheritance using interface
+    public void methodOne(){
+        System.out.println("MEthod one");
+    }
+    public void methodTwo(){
+        System.out.println("MEthod two");
+    }
+    public void methodThree(){
+        System.out.println("MEthod three");
+    }
+}
+public class day22 {
+    public static void main(String[] args) {
+        CLASS A = new CLASS();
+        A.methodOne();
+        A.methodTwo();
+        A.methodThree();
+    }
+}
+
+//Linked List 
+
+Linked List is a linear data structure. It looks like chain or series of nodes, where each node consist of data and pointer to the next node.
+
+Head : Head is pointer or a reference to the first node of linked list. 
+Node : Linked list consist series of Node. Each node has two parts DATA & next pointer.
+Data : Data is a part of node with stores the info of linked list.
+Next pointer : Next points to the next node of linked list & if it is the tail of linked list it points to null.
+
+Types of Linked List : 
+    i.Singly 
+    ii. Doubly
+    iii. Circular
+
+i. Singly Linked list
+It is the simplest type of linked list in which every node contains some data and a pointer to the next node of the same data type.
+
+//example of traversal 
+public static class Node{
+    int data;
+    Node next;
+
+    Node(int d){
+        data = d;
+        next = null;
+    }
+}
+public static void traverse(Node head){
+    if(head == null){
+        System.out.println("Empty linked list");
+        return;
+    }
+    
+    Node current = head;
+    while(current != null){
+        System.out.print(current.data + " -> ");
+        current = current.next;
+    }
+    System.out.println("null");
+}
+public static void main(String[] args) {
+    Node head = new Node(0);
+    Node second = new Node(1);
+    Node last = new Node(3);
+
+    head.next = second;
+    second.next = last;
+
+    traverse(head);
+}
+
+//example of searching 
+public static class Node{
+    int data;
+    Node next;
+
+    Node(int d){
+        data = d;
+        next = null;
+    }
+}
+public static int search(Node head, int value){
+    if(head == null){
+        System.out.println("Empty linkedlist");
+        return -1;
+    }
+
+    Node curr = head;
+    int idx = 0;
+    while(curr != null){
+        if(curr.data == value){
+            return idx;
+        }
+        idx++;
+        curr = curr.next;
+    }
+    return -1;
+}
+public static void main(String[] args) {
+    Node head = new Node(0);
+    Node second = new Node(1);
+    Node last = new Node(3);
+
+    head.next = second;
+    second.next = last;
+
+    System.out.println(search(head, 3));
+}
+
