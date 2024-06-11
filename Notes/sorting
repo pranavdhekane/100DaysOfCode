@@ -68,6 +68,7 @@ public static int partition(int arr[], int low, int high){
             arr[j] = temp;
         }
     }
+    z
     i++;
     int temp = arr[i];
     arr[i] = arr[high];

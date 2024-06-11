@@ -331,3 +331,42 @@ public class day21{
 
 
 //Interfaces in Java
+
+In Java, interfaces are used to achieve total abstraction.
+Since Java does not support multiple Inheritance, Interfaces are a solution to that.
+Interface contains abstract methods without any method body.
+to implement interface , implements keyword is used.
+extends keyword is used to extend one interface to another.
+
+//example
+
+interface one{
+    public void methodOne();
+}
+interface two extends one{
+    public void methodTwo();
+}
+interface three extends one{
+    public void methodThree();
+}
+class CLASS implements three, two{ //multiple inheritance using interface
+    public void methodOne(){
+        System.out.println("MEthod one");
+    }
+    public void methodTwo(){
+        System.out.println("MEthod two");
+    }
+    public void methodThree(){
+        System.out.println("MEthod three");
+    }
+}
+public class day22 {
+    public static void main(String[] args) {
+        CLASS A = new CLASS();
+        A.methodOne();
+        A.methodTwo();
+        A.methodThree();
+    }
+}
+
+
