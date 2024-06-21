@@ -1,0 +1,16 @@
+Day 31 : 
+
+//Diameter of tree
+Approach One O(n^2)
+public static int Diameter(Node root){
+        if(root == null){
+            return 0;
+        }
+        int diam1 = Diameter(root.left);
+        int diam2 = Diameter(root.right);
+        int diam3 = height(root.left) + height(root.right) + 1;
+
+        return Math.max(diam3, Math.max(diam1, diam2));
+    }
+
+Approach Two O(n)

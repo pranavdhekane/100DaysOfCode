@@ -1,0 +1,149 @@
+Stack Implementation using Linked List :
+
+public class day27 {
+    Node head;
+    class Node {
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public void push(int data){
+        Node newNode = new Node(data);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+
+    public int pull(){
+        if(head == null){
+            System.out.println("Empty Stack");
+            return -1;
+        }
+        int data = head.data;
+        head = head.next;
+        return data; 
+    }
+
+    public int peek(){
+        if(head == null){
+            System.out.println("Empty Stack");
+            return -1;
+        }
+        return head.data;
+    }
+    public static void main(String[] args) {
+        day27 list = new day27();
+        list.push(1);
+        list.push(2);
+        list.push(3);
+        list.push(4);
+        list.push(5);
+
+        System.out.println(list.peek());
+
+        System.out.println(list.pull());
+        System.out.println(list.pull());
+        System.out.println(list.pull());
+        System.out.println(list.pull());
+        System.out.println(list.pull());
+
+    }
+}
+
+Stack Implementation using ArrayList : 
+public static void main(String[] args) {
+    ArrayList<Integer> list = new ArrayList<>();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(4);
+    list.add(5);
+
+    System.out.println(list.get(list.size() -1));
+
+    System.out.println(list.remove(list.size()-1));
+    System.out.println(list.remove(list.size()-1));
+    System.out.println(list.remove(list.size()-1));
+    System.out.println(list.remove(list.size()-1));
+    System.out.println(list.remove(list.size()-1));
+}
+
+Pushing a element at the end of Stack : 
+//using recursion
+public static void pushAtbottom(Stack<Integer> st, int data){
+    if(st.empty()){
+        st.push(data);
+        return;
+    }
+    int top = st.pop();
+    pushAtbottom(st, data);
+    st.push(top);
+}
+//using array 
+public static void bottom(Stack<Integer> st, int data){
+    int arr[] = new int[st.size()];
+    int i = 0;
+    while(st.empty() == false){
+        arr[i++] = st.pop();
+    }
+    st.push(data);
+    for(int j = i-1; j>=0; j--){
+        st.push(arr[j]);
+    }
+}
+
+public static void main(String[] args) {
+    Stack<Integer> st = new Stack<>();
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.push(5);
+
+    System.out.println(st);
+    // bottom(st, 0);
+    pushAtbottom(st, 0);
+    System.out.println(st);
+    
+}
+
+Reversing a Stack:
+public static void pushAtbottom(Stack<Integer> st, int data){
+    if(st.empty()){
+        st.push(data);
+        return;
+    }
+    int top = st.pop();
+    pushAtbottom(st, data);
+    st.push(top);
+}
+
+public static void reverse(Stack<Integer> st){
+    if(st.empty()){
+        return;
+    }
+    int top = st.pop();
+    reverse(st);
+    pushAtbottom(st, top);
+}
+
+public static void main(String[] args) {
+    Stack<Integer> st = new Stack<>();
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.push(5);
+
+    System.out.println(st);
+    reverse(st);
+    System.out.println(st);
+    
+}

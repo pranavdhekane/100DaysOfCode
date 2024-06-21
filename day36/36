@@ -1,0 +1,68 @@
+Day 35 : 
+
+//Hashset
+public static void main(String[] args) {
+    //decleration
+    HashSet<Integer> set = new HashSet<>();
+
+    // insertion in hashset
+    set.add(1);
+    set.add(2);
+    set.add(3);
+    set.add(4);
+    set.add(1);
+    System.out.println(set);
+
+    //search in hashset 
+    System.out.println(set.contains(2));
+    System.out.println(set.contains(8));
+
+    //removal of elements in hashSets
+    set.remove(1);
+    set.remove(2);
+    System.out.println(set);
+    
+    //Iterator in HashSets
+    Iterator it = set.iterator();
+
+    while (it.hasNext()) {
+        System.out.println(it.next());
+    }
+}
+
+//HashMap
+public static void main(String[] args) {
+    HashMap<String , Integer> map = new HashMap<>();
+
+    //insertion
+        //new key
+        map.put("India", 100);
+        map.put("China", 150);
+        map.put("US", 50);
+
+        System.out.println(map);
+        //Key already existing 
+        map.put("China", 180);//updates the value
+        System.out.println(map);
+
+    // Searching 
+    System.out.println(map.containsKey("India")); // returns true or false
+    System.out.println(map.get("Inia"));//if key present returns value else returns null
+
+    //Iteration
+
+    for(Map.Entry<String, Integer> e : map.entrySet()){
+        System.out.println(e.getKey());
+        System.out.println(e.getValue());
+        System.out.println(e);
+    }
+
+    Set<String> keys = map.keySet();
+    for(String key : keys){
+        System.out.println(key +"="+ map.get(key));
+    }
+
+    //deletation
+    map.remove("China");
+    System.out.println(map);
+}
