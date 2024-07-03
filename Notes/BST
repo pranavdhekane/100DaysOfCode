@@ -1,0 +1,138 @@
+//Binary Search Tree 
+Left Subtree Nodes < Root 
+Right Subtree Nodes > Root 
+Left and Right Subtree are also BST with no duplicates
+
+Special Property : Inorder Traversal of BST Always Gives a Sorted sequence
+
+//Insertion of values in BST and printing them using Inorder Traversal to see if they are in a proper sequence
+public static class Node {
+    int data;
+    Node left;
+    Node right;
+
+    Node(int data){
+        this.data = data;
+    }
+}
+
+public static Node insert(Node root, int val){
+    if(root == null){
+        root = new Node(val);
+        return root;
+    }
+
+    if(root.data > val){
+        root.left = insert(root.left, val);
+    }
+    
+    if(root.data < val){
+        root.right = insert(root.right, val);
+    }
+
+    return root;
+}
+public static void inorder(Node root){
+    if(root == null){
+        return;
+    }
+    inorder(root.left);
+    System.out.print(root.data + " ");
+    inorder(root.right);
+}
+public static void main(String[] args) {
+    int values[] = { 5, 1, 3, 4, 2, 7 };
+    Node root = null;
+   
+    for(int i =0; i<values.length; i++){
+        root = insert(root, values[i]);
+    }
+
+    inorder(root);
+    System.out.println();        
+}
+
+//Searching in BST
+public static boolean search(Node root, int key){
+    if(root == null){
+        return false;
+    }
+    if(root.data == key){
+        return true;
+    }
+    else if(root.data > key){
+        return search(root.left, key);
+    }
+    else if(root.data < key){
+        return search(root.right, key);
+    }
+    return false;
+}
+
+//Deleting in BST
+public static Node delete(Node root, int val){
+    if(root.data > val){
+        root.left = delete(root.left, val);
+    } else if(root.data < val){
+        root.right = delete(root.right, val);
+    } else {//root.data == val
+
+        //case 1 : root node has no childnodes
+        if(root.right == null && root.left == null){
+            return null;
+        }
+
+        //case 2 : root node has one childNode
+        if(root.left == null){
+            return root.right;
+        } else if(root.right == null){
+            return root.left;
+        }
+
+        //case 3 : root has Both childnodes
+        Node IS = inorderSuccessor(root.right);
+        root.data = IS.data;
+        root.right = delete(root.right, IS.data);
+    }
+    return root;
+
+}
+public static Node inorderSuccessor(Node root){
+    while(root.left!= null){
+        root = root.left;
+    }
+    return root;
+}
+
+//Print in Range in BST
+public static void printInRange(Node root, int x, int y){
+    if(root == null){
+        return;
+    }
+    if(root.data >= x && root.data <=y){
+        printInRange(root.left, x, y);
+        System.out.print(root.data + " ");
+        printInRange(root.right, x, y);
+    } else if(root.data >= y){
+        printInRange(root.left, x, y);
+    } else {
+        printInRange(root.right, x, y);
+    }
+}
+
+//root to leaf paths
+public static void rootToLeaf(Node root, ArrayList<Integer> list){
+if(root == null){
+    return;
+}
+list.add(root.data);
+
+if(root.left == null && root.right == null){
+    System.out.println(list);
+} else {
+    rootToLeaf(root.left, list);
+    rootToLeaf(root.right, list);
+}
+
+list.remove(list.size()-1);
+}

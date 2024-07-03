@@ -1,0 +1,75 @@
+Day 44: 
+
+Insert in a Sorted List
+Difficulty: EasyAccuracy: 31.37%Submissions: 129K+Points: 2
+Given a linked list sorted in ascending order and an integer called data, insert data in the linked list such that the list remains sorted.
+
+Example 1:
+
+Input:
+LinkedList: 25->36->47->58->69->80
+data: 19
+Output: 
+19 25 36 47 58 69 80
+Explanation:
+After inserting 19 the sorted linked list will look like the one in the output.
+Example 2:
+
+Input:
+LinkedList: 50->100
+data: 75
+Output: 
+50 75 100
+Explanation:
+After inserting 75 the sorted linked list will look like the one in the output.
+Your Task:
+The task is to complete the function sortedInsert() which should insert the element in sorted Linked List and return the head of the linked list
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(1).
+
+
+class Solution {
+    Node sortedInsert(Node head1, int key) {
+        // Add your code here.
+        Node newNode = new Node(key);
+        
+        //if head == null return newNode as head;
+        if(head1 == null){
+            return newNode;
+        }
+        
+        //if key is less than head;
+        if(key <= head1.data){
+            newNode.next = head1;
+            return newNode;
+        }
+        
+        Node prev = head1;
+        Node curr = head1.next;
+        
+        //if head has no next node
+        if(curr == null){
+            prev.next = newNode;
+            return head1;
+        }
+        
+        while(curr != null){
+            if((curr.data > key && prev.data < key) || curr.data == key){
+                prev.next = newNode;
+                newNode.next = curr;
+                return head1;
+            }
+            
+            
+            curr = curr.next;
+            prev = prev.next;
+        }
+        
+        
+        //key has the largest value
+        prev.next = newNode;
+        return head1;
+        
+    }
+}

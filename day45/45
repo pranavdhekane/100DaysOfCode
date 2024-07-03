@@ -1,0 +1,19 @@
+Day 45 : 
+
+// Word Break Problem
+
+public static boolean wordBreak(String key){
+    if(key.length() == 0){
+        return true;
+    }
+
+    for(int i = 1; i<=key.length(); i++){
+        String firstPart = key.substring(0, i);
+        String secondPart = key.substring(i, key.length());
+
+        if(search(firstPart) && wordBreak(secondPart)){
+            return true;
+        }
+    }
+    return false;
+}
