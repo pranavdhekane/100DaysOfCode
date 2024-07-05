@@ -1,0 +1,129 @@
+Solved probs: 
+
+Left most and right most index
+Difficulty: EasyAccuracy: 38.23%Submissions: 74K+Points: 2
+Given a sorted array with possibly duplicate elements. The task is to find indexes of first and last occurrences of an element X in the given array.
+
+Note: If the element is not present in the array return {-1,-1} as pair.
+
+Input:
+N = 9
+v[] = {1, 3, 5, 5, 5, 5, 67, 123, 125}
+X = 5
+Output:
+2 5
+Explanation:
+Index of first occurrence of 5 is 2
+and index of last occurrence of 5 is 5.
+
+class Solution {
+    public pair indexes(long v[], long x)
+    {
+        // Your code goes here
+        long f = -1;
+        long l = -1;
+        for(int i = 0; i<v.length; i++){
+            if(v[i] == x){
+                if(f == -1) f = i;
+                l = i;
+            }
+        }
+        return new pair(f, l);
+    }
+}
+
+
+Find Transition Point
+Difficulty: EasyAccuracy: 37.9%Submissions: 259K+Points: 2
+Given a sorted array containing only 0s and 1s, find the transition point, i.e., the first index where 1 was observed, and before that, only 0 was observed.
+
+Example 1:
+
+Input:
+N = 5
+arr[] = {0,0,0,1,1}
+Output: 3
+Explanation: index 3 is the transition 
+point where 1 begins.
+Example 2:
+
+Input:
+N = 4
+arr[] = {0,0,0,0}
+Output: -1
+Explanation: Since, there is no "1",
+the answer is -1.
+
+class Solution {
+    int transitionPoint(int arr[], int n) {
+        // code here
+        if(arr[0] == 1) return 0;
+        for(int i = 1 ; i< n; i++){
+            if(arr[i] == 1) return i;
+        }
+        return -1;
+    }
+}
+
+
+Index of an Extra Element
+Difficulty: EasyAccuracy: 41.77%Submissions: 147K+Points: 2
+You have given two sorted arrays arr1[] & arr2[] of distinct elements. The first array has one element extra added in between. Return the index of the extra element.
+
+Note: 0-based indexing is followed.
+
+Examples
+
+Input: n = 7, arr1[] = {2,4,6,8,9,10,12}, arr2[] = {2,4,6,8,10,12}
+Output: 4
+Explanation: In the first array, 9 is extra added and its index is 4.
+Input: n = 6, arr1[] = {3,5,7,8,11,13}, arr2[] = {3,5,7,11,13}
+Output: 3
+Explanation: In the first array, 8 is extra and its index is 3.
+
+class Solution {
+    public int findExtra(int n, int arr1[], int arr2[]) {
+        // add code here.\
+        for(int i = 0; i<n -1; i++) {
+            if(arr1[i] != arr2[i]) return i;
+        }
+        return n-1;
+    }
+}
+
+Peak element
+Difficulty: BasicAccuracy: 38.86%Submissions: 440K+Points: 1
+Given an 0-indexed array of integers arr[] of size n, find its peak element and return it's index. An element is considered to be peak if it's value is greater than or equal to the values of its adjacent elements (if they exist).
+
+Note: The output will be 1 if the index returned by your function is correct; otherwise, it will be 0.
+
+Examples :
+
+Input: n = 3, arr[] = {1, 2, 3} 
+Output: 1
+Explanation: If the index returned is 2, then the output printed will be 1. Since arr[2] = 3 is greater than its adjacent elements, and there is no element after it, we can consider it as a peak element. No other index satisfies the same property, so answer will be printed as 0.
+Input: n = 7, arr[] = {1, 1, 1, 2, 1, 1, 1}
+Output: 1
+Explanation: In this case there are 5 peak elements with indices as {0,1,3,5,6}. Returning any of them will give you correct answer.
+Your Task:
+You dont have to read input or print anything. Complete the function peakElement() which takes the array arr[] and its size n as input parameters and returns the index of the peak element.
+
+class Solution
+{
+	// Function to find the peak element
+	// arr[]: input array
+	// n: size of array a[]
+	public int peakElement(int[] arr,int n)
+    {
+       //add code here.
+       if(n == 1) return 0;
+       for(int i = 1; i<n-1; i++){
+           if(arr[i] >= arr[i-1] && arr[i] >= arr[i+1]) return i;
+       }
+       
+       if(arr[0] >= arr[1]) return 0;
+       if(arr[n-1] >= arr[n-2]) return n-1;
+       
+       return -1;
+    }
+}
