@@ -1,0 +1,28 @@
+Day 51 : 
+
+// count all possible substrings
+in tree the number of nodes is equal to the number of substring
+public static int countNode(Node root){
+        if(root == null) {
+            return 0;
+        }
+        int count = 0;
+        for(int i = 0; i<26; i++){
+            if(root.childern[i] != null){
+                count += countNode(root.childern[i]);
+            }
+        }
+
+        return count+ 1;
+    }
+    public static void main(String[] args) {
+        String str = "ababa";
+
+        for(int i = 0; i< str.length(); i++){
+            String suffix = str.substring(i);
+            insert(suffix);
+        }
+
+        System.out.println(countNode(root));
+    }
+
