@@ -1,0 +1,29 @@
+Day 56 : 
+
+Print All paths(from source to target)
+public static void printAllPaths(ArrayList<Edge> graph[], boolean vis[], int start, int target, String path) {
+        if(start == target){
+            System.out.println(path);
+            return;
+        }
+
+        for(int i = 0; i< graph[start].size(); i++){
+            Edge e = graph[start].get(i);
+            if(!vis[e.dest]){
+                vis[start] = true;
+                printAllPaths(graph, vis, e.dest, target, path+e.dest);
+                vis[start] = false;
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        int V = 7;
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge> graph[] = new ArrayList[V];
+
+        createGraph(graph);
+        boolean vis[] = new boolean[V];
+
+        printAllPaths(graph, vis, 0, 5, "0");
+    }
