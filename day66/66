@@ -1,0 +1,32 @@
+Day 65 : 
+
+
+Min Stack : 
+class MinStack {
+    public int min = Integer.MAX_VALUE;
+    Stack<Integer> minStack;
+    public MinStack() {
+        minStack = new Stack<Integer>();
+    }
+   
+    public void push(int val) {
+        minStack.push(val);
+        if(min > val) min = val;
+    }
+   
+    public void pop() {
+        int pop = minStack.pop();
+        if(min == pop){
+            min = Integer.MAX_VALUE;
+            for(int i : minStack) if(min > i) min = i;
+        }
+    }
+   
+    public int top() {
+        return minStack.peek();
+    }
+   
+    public int getMin() {
+        return min;
+    }
+}

@@ -1,0 +1,48 @@
+Day 68 : 
+
+Implement Queue using Stacks : 
+
+class MyQueue {
+    Stack<Integer> myQueue;
+    Stack<Integer> myQueue2;
+    public MyQueue() {
+        myQueue = new Stack<Integer>();
+        myQueue2 = new Stack<Integer>();
+    }
+    
+    public void push(int x) {
+        myQueue.push(x);
+    }
+    
+    public int pop() {
+        while(!myQueue.isEmpty()) {
+            myQueue2.push(myQueue.pop());
+        }
+
+        int pop = myQueue2.pop();
+
+        while(!myQueue2.isEmpty()){
+            myQueue.push(myQueue2.pop());
+        }
+        return pop;
+    }
+    
+    public int peek() {
+        
+        while(!myQueue.isEmpty()) {
+            myQueue2.push(myQueue.pop());
+        }
+
+        int peek = myQueue2.peek();
+
+        while(!myQueue2.isEmpty()){
+            myQueue.push(myQueue2.pop());
+        }
+        return peek;
+    }
+    
+    public boolean empty() {
+        if(myQueue.isEmpty() && myQueue2.isEmpty()) return true;
+        else return false;
+    }
+}
