@@ -1,0 +1,66 @@
+Day 74: 
+
+Intersection of Two Arrays: 
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> list = new HashSet<>();
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int i : nums1){
+            set.add(i);
+        }
+
+        for(int i : nums2){
+            if(set.contains(i)){
+                list.add(i);
+            }
+        }
+
+        int arr[] = new int[list.size()];
+        int j = 0;
+        for(int i : list){
+            arr[j++] = i;
+        }
+
+        return arr;
+    }
+}
+
+Reversing a String : 
+class Solution {
+    public void reverseString(char[] s) {
+        int n = s.length;
+        for(int i = 0; i<n / 2; i++){
+            char temp = s[i];
+            s[i] = s[n - i - 1];
+            s[n - i - 1] = temp;
+        }
+    }
+}
+
+Palindrome String : 
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        int n = s.length();
+
+        StringBuilder str = new StringBuilder();
+        for(int i = 0; i< n; i++) {
+            char ch = s.charAt(i);
+
+            if(ch >= 65 && ch <= 90){ // UpperChase characters
+                ch += 32;
+                str.append(ch);
+            } 
+            else if(ch >= 97 && ch <= 122) str.append(ch);// lowercase
+            else if(ch >= 48 && ch <= 57) str.append(ch); //numbers
+        }
+
+        n = str.length();
+        for(int i = 0; i < n/2; i++){
+            if(str.charAt(i) != str.charAt(n-i-1)) return false;
+        }
+
+        return true;
+    }
+}

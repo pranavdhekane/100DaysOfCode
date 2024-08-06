@@ -1,0 +1,9 @@
+Day 75 of #100DaysOfCode:
+
+Today, I tackled some basic programs in C as part of my class assignment:
+1. Writing a length function for an array using the sizeof operator
+2. Merging arrays
+3. Matrix operations
+4. Binary search
+
+It was a great practice to do this in Notepad instead of any IDE. Each method has its pros and cons, but I made it through. I also attempted the LeetCode problem "String to Integer (atoi)" (🔗 https://leetcode.com/problems/string-to-integer-atoi) but encountered some bugs. Time well spent, and we'll try to do more tomorrow!

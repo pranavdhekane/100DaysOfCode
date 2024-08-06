@@ -8,7 +8,7 @@ public class day69 {static class Queue{
     
     Queue(int s){
         arr = new int[s];
-        this.size = s;
+        size = s;
     }
 
     public static boolean isEmpty(){
@@ -73,7 +73,7 @@ public static void main(String[] args) {
     System.out.println("Removed "  + q.remove());
     q.add(4);
 
-    while(!q.isEmpty()){
+    while(!Queue.isEmpty()){
         System.out.println(q.peek());
         q.remove();
     }

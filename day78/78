@@ -1,0 +1,79 @@
+Day 78 : 
+
+Find Closest number to zero : 
+
+class Solution {
+    public int findClosestNumber(int[] nums) {
+        int pclose = Integer.MAX_VALUE;
+        int nclose = Integer.MIN_VALUE;
+
+        for(int i = 0; i<nums.length; i++) {
+            if(nums[i] == 0)
+                return 0;
+            else if(nums[i] < 0 && nums[i] > nclose)
+                nclose = nums[i];
+            else if(nums[i] > 0 && nums[i] < pclose)
+                pclose = nums[i];
+        }
+
+        if(nclose == Integer.MIN_VALUE) return pclose;
+        if(pclose == Integer.MAX_VALUE) return nclose;
+        
+        int Nclose = -1 * nclose;
+
+        if(Nclose < pclose){
+            return nclose;
+        } 
+        return pclose;
+    }
+}
+
+Roman TO Integer: 
+
+public static int romanToInt(String s) {
+    HashMap<Character , Integer> map = new HashMap<>();
+    map.put('I', 1);
+    map.put('V', 5);
+    map.put('X', 10);
+    map.put('L', 50);
+    map.put('C', 100);
+    map.put('D', 500);
+    map.put('M', 1000);
+
+    int num = 0;
+
+    for(int i = s.length() -1 ; i >= 0; i--) {
+        char ch = s.charAt(i);
+        if(i == 0){
+            num += map.get(ch);
+            break;
+        }
+        if(map.get(ch) > map.get(s.charAt(i-1))){
+            num += map.get(ch) - map.get(s.charAt(i-1));
+            i--;
+        } 
+        else {
+            num += map.get(ch);
+        }
+    }
+
+    return num;
+}
+
+is Subseqence : 
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int p1 = 0;
+        int p2 = 0;
+
+        while(p1 != s.length() && p2 != t.length()) {
+            if(s.charAt(p1) == t.charAt(p2)){
+                p1++;
+            }
+            p2++;
+        }
+
+        return p1 == s.length();
+    }
+}
